@@ -1,0 +1,5 @@
+.env
+reports/
+generated_tests/artifacts/
+__pycache__/
+.pytest_cache/

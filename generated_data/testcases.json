@@ -1,0 +1,347 @@
+{
+  "testcases": [
+    {
+      "name": "Login with valid credentials",
+      "summary": "Validates successful login using provided email and password.",
+      "steps": [
+        {
+          "actions": "User clicks 'Log in' button, enters valid email and password, then submits form.",
+          "expected_results": "User is redirected to home page after successful login."
+        }
+      ],
+      "testdata": {
+        "input1": "testuser1@test.com",
+        "input2": "Test@123",
+        "operator": "POST /login",
+        "expected": "Redirect to Home Page",
+        "actions": [
+          {
+            "selector": "input#Email",
+            "action": "fill",
+            "value": "${input1}"
+          },
+          {
+            "selector": "input#Password",
+            "action": "fill",
+            "value": "${input2}"
+          },
+          {
+            "selector": "button[type='submit']",
+            "action": "click"
+          }
+        ],
+        "assertions": [
+          {
+            "selector": "a[href='/home']",
+            "assertion_type": "visible",
+            "expected": true
+          }
+        ],
+        "target_url": "https://demowebshop.tricentis.com/",
+        "selectors": {}
+      },
+      "selectors": {
+        "field1": "#Email",
+        "field2": "#Password",
+        "submit": "button[type='submit']"
+      },
+      "actions": [
+        {
+          "selector": "input#Email",
+          "action": "fill",
+          "value": "${input1}"
+        },
+        {
+          "selector": "input#Password",
+          "action": "fill",
+          "value": "${input2}"
+        },
+        {
+          "selector": "button[type='submit']",
+          "action": "click"
+        }
+      ],
+      "assertions": [
+        {
+          "selector": "a[href='/home']",
+          "assertion_type": "visible",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "Register with valid details",
+      "summary": "Validates successful registration using provided email, password, and name.",
+      "steps": [
+        {
+          "actions": "User clicks 'Register' button, fills all required fields, then submits form.",
+          "expected_results": "User is redirected to home page after successful registration."
+        }
+      ],
+      "testdata": {
+        "input1": "testuser2@test.com",
+        "input2": "Test@123",
+        "operator": "POST /register",
+        "expected": "Redirect to Home Page",
+        "actions": [
+          {
+            "selector": "input#FirstName",
+            "action": "fill",
+            "value": "${input1}"
+          },
+          {
+            "selector": "input#LastName",
+            "action": "fill",
+            "value": "${input2}"
+          },
+          {
+            "selector": "button[type='submit']",
+            "action": "click"
+          }
+        ],
+        "assertions": [
+          {
+            "selector": "a[href='/home']",
+            "assertion_type": "visible",
+            "expected": true
+          }
+        ],
+        "target_url": "https://demowebshop.tricentis.com/",
+        "selectors": {}
+      },
+      "selectors": {
+        "field1": "#FirstName",
+        "field2": "#LastName",
+        "submit": "button[type='submit']"
+      },
+      "actions": [
+        {
+          "selector": "input#FirstName",
+          "action": "fill",
+          "value": "${input1}"
+        },
+        {
+          "selector": "input#LastName",
+          "action": "fill",
+          "value": "${input2}"
+        },
+        {
+          "selector": "button[type='submit']",
+          "action": "click"
+        }
+      ],
+      "assertions": [
+        {
+          "selector": "a[href='/home']",
+          "assertion_type": "visible",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "Add product to cart and update quantity",
+      "summary": "Validates adding a product to the cart, updating its quantity, and viewing updated subtotal.",
+      "steps": [
+        {
+          "actions": "User clicks 'Add to Cart' button for a product, then updates quantity and submits form.",
+          "expected_results": "Subtotal is correctly calculated after quantity update."
+        }
+      ],
+      "testdata": {
+        "input1": "testuser2@test.com",
+        "input2": "Test@123",
+        "operator": "POST /cart/add",
+        "expected": "Subtotal updated",
+        "actions": [
+          {
+            "selector": "a[href='/product/1']",
+            "action": "click"
+          },
+          {
+            "selector": "input#Quantity",
+            "action": "fill",
+            "value": "${input2}"
+          },
+          {
+            "selector": "button[type='submit']",
+            "action": "click"
+          }
+        ],
+        "assertions": [
+          {
+            "selector": "#Subtotal",
+            "assertion_type": "text",
+            "expected": "${expected}"
+          }
+        ],
+        "target_url": "https://demowebshop.tricentis.com/",
+        "selectors": {}
+      },
+      "selectors": {
+        "field1": "#ProductName",
+        "field2": "#Quantity",
+        "submit": "button[type='submit']"
+      },
+      "actions": [
+        {
+          "selector": "a[href='/product/1']",
+          "action": "click"
+        },
+        {
+          "selector": "input#Quantity",
+          "action": "fill",
+          "value": "${input2}"
+        },
+        {
+          "selector": "button[type='submit']",
+          "action": "click"
+        }
+      ],
+      "assertions": [
+        {
+          "selector": "#Subtotal",
+          "assertion_type": "text",
+          "expected": "${expected}"
+        }
+      ]
+    },
+    {
+      "name": "Checkout with valid billing and shipping addresses, payment method",
+      "summary": "Validates the checkout process by providing valid billing and shipping details along with a valid payment method.",
+      "steps": [
+        {
+          "actions": "User fills all required fields for billing address, shipping address, and selects a payment method, then submits form.",
+          "expected_results": "Order is placed successfully."
+        }
+      ],
+      "testdata": {
+        "input1": "testuser2@test.com",
+        "input2": "Test@123",
+        "operator": "POST /checkout",
+        "expected": "Order Placed Successfully",
+        "actions": [
+          {
+            "selector": "input#BillingFirstName",
+            "action": "fill",
+            "value": "${input1}"
+          },
+          {
+            "selector": "input#ShippingFirstName",
+            "action": "fill",
+            "value": "${input2}"
+          },
+          {
+            "selector": "button[type='submit']",
+            "action": "click"
+          }
+        ],
+        "assertions": [
+          {
+            "selector": "#OrderPlacedMessage",
+            "assertion_type": "visible",
+            "expected": true
+          }
+        ],
+        "target_url": "https://demowebshop.tricentis.com/",
+        "selectors": {}
+      },
+      "selectors": {
+        "field1": "#BillingFirstName",
+        "field2": "#ShippingFirstName",
+        "submit": "button[type='submit']"
+      },
+      "actions": [
+        {
+          "selector": "input#BillingFirstName",
+          "action": "fill",
+          "value": "${input1}"
+        },
+        {
+          "selector": "input#ShippingFirstName",
+          "action": "fill",
+          "value": "${input2}"
+        },
+        {
+          "selector": "button[type='submit']",
+          "action": "click"
+        }
+      ],
+      "assertions": [
+        {
+          "selector": "#OrderPlacedMessage",
+          "assertion_type": "visible",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "Invalid login with invalid credentials",
+      "summary": "Validates the error handling for incorrect email and password combinations.",
+      "steps": [
+        {
+          "actions": "User enters invalid email and password, then submits form.",
+          "expected_results": "Login fails with appropriate error message."
+        }
+      ],
+      "testdata": {
+        "input1": "invalidemail@test.com",
+        "input2": "InvalidPassword",
+        "operator": "POST /login",
+        "expected": "Login Failed",
+        "actions": [
+          {
+            "selector": "input#Email",
+            "action": "fill",
+            "value": "${input1}"
+          },
+          {
+            "selector": "input#Password",
+            "action": "fill",
+            "value": "${input2}"
+          },
+          {
+            "selector": "button[type='submit']",
+            "action": "click"
+          }
+        ],
+        "assertions": [
+          {
+            "selector": "#ErrorMessage",
+            "assertion_type": "text",
+            "expected": "Login Failed"
+          }
+        ],
+        "target_url": "https://demowebshop.tricentis.com/",
+        "selectors": {}
+      },
+      "selectors": {
+        "field1": "#Email",
+        "field2": "#Password",
+        "submit": "button[type='submit']"
+      },
+      "actions": [
+        {
+          "selector": "input#Email",
+          "action": "fill",
+          "value": "${input1}"
+        },
+        {
+          "selector": "input#Password",
+          "action": "fill",
+          "value": "${input2}"
+        },
+        {
+          "selector": "button[type='submit']",
+          "action": "click"
+        }
+      ],
+      "assertions": [
+        {
+          "selector": "#ErrorMessage",
+          "assertion_type": "text",
+          "expected": "Login Failed"
+        }
+      ]
+    }
+  ]
+}

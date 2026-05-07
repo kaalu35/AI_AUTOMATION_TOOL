@@ -1,0 +1,7 @@
+openai
+google-generativeai
+PyGithub
+pytest
+pytest-html
+playwright
+TestLink-API-Python-client

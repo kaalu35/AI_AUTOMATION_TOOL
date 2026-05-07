@@ -1,0 +1,117 @@
+# System Design - Demo Web Shop
+
+## 1. Architecture
+
+* Client-Server Architecture
+* Frontend: HTML, CSS, JavaScript
+* Backend: ASP.NET (nopCommerce)
+* Database: SQL Server
+
+---
+
+## 2. Navigation Flow
+
+Home → Login/Register → Product → Cart → Checkout → Order
+
+---
+
+## 3. UI Layout
+
+### Header
+
+* Logo
+* Search bar
+* Login/Register
+* Cart icon
+
+### Footer
+
+* Navigation links
+* Contact info
+
+---
+
+## 4. Component Design
+
+### Login Component
+
+Selectors:
+
+* Email → #Email
+* Password → #Password
+* Login Button
+
+---
+
+### Registration Component
+
+* Input fields
+* Submit button
+* Validation messages
+
+---
+
+### Product Component
+
+* Product title
+* Price
+* Add to cart button
+
+---
+
+### Cart Component
+
+* Product list
+* Quantity input
+* Remove option
+* Update button
+
+---
+
+## 5. Data Flow Example (Add to Cart)
+
+1. User clicks "Add to cart"
+2. Request sent to server
+3. Cart updated
+4. UI refreshed
+
+---
+
+## 6. State Management
+
+* Session-based authentication
+* Cart stored per session
+
+---
+
+## 7. API Design (Conceptual)
+
+* GET /products
+* POST /login
+* POST /cart/add
+* POST /checkout
+
+---
+
+## 8. Validation Rules
+
+| Field    | Rule             |
+| -------- | ---------------- |
+| Email    | Valid format     |
+| Password | Min 6 characters |
+| Quantity | > 0              |
+
+---
+
+## 9. Error Handling Design
+
+* Inline validation errors
+* Alert messages for failures
+
+---
+
+## 10. Testability Considerations
+
+* Unique selectors for elements
+* Stable page URLs
+* Predictable navigation flow

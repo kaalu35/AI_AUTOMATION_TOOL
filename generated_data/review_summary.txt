@@ -1,0 +1,18 @@
+Generated Test Review
+Total testcases: 5
+
+1. Login with valid credentials
+   Expected: Redirect to Home Page
+   OK
+2. Register with valid details
+   Expected: Redirect to Home Page
+   OK
+3. Add product to cart and update quantity
+   Expected: Subtotal updated
+   OK
+4. Checkout with valid billing and shipping addresses, payment method
+   Expected: Order Placed Successfully
+   OK
+5. Invalid login with invalid credentials
+   Expected: Login Failed
+   OK

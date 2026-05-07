@@ -1,0 +1,25 @@
+{
+  "total_testcases": 5,
+  "testcases": [
+    {
+      "name": "Login with valid credentials",
+      "warnings": []
+    },
+    {
+      "name": "Register with valid details",
+      "warnings": []
+    },
+    {
+      "name": "Add product to cart and update quantity",
+      "warnings": []
+    },
+    {
+      "name": "Checkout with valid billing and shipping addresses, payment method",
+      "warnings": []
+    },
+    {
+      "name": "Invalid login with invalid credentials",
+      "warnings": []
+    }
+  ]
+}
