@@ -2,6 +2,8 @@ import os
 from pathlib import Path
 
 
+
+
 def _load_env_file() -> None:
     env_path = Path(__file__).resolve().parent / ".env"
     if not env_path.exists():
