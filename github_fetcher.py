@@ -3,7 +3,7 @@ from github import Github, GithubException, UnknownObjectException
 import config
 
 
-DEMO_REQUIREMENT = (
+DEMO_REQUIREMENT = ( 
     "Calculator web app supports +, -, *, /, decimals, chained operations, "
     "and division by zero handling."
 )

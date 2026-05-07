@@ -1,4 +1,4 @@
-.env
+env
 reports/
 generated_tests/artifacts/
 __pycache__/
